@@ -17,7 +17,7 @@ class Settings(BaseSettings):
         )
     @property
     def DATABASE_URL_psycopg(self):
-        # Просто ассинхронная ссылка для подключения к БД
+        # Просто ссинхронная ссылка для подключения к БД
         return (f"postgresql+psycopg://{self.DB_USER}:{self.DB_PASS}@"      
                 f"{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         )
@@ -26,3 +26,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print("ASYNC URL:", settings.DATABASE_URL_asyncpg)
